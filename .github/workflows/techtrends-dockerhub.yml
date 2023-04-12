@@ -31,3 +31,4 @@ jobs:
           context: project
           push: true
           tags: dunkbing/techtrends:latest
+          file: Dockerfile

@@ -4,12 +4,12 @@ namespace:
 service:
   port: 5111
 
-replicaCount: 1
+replicaCount: 3
 
 resources:
   requests:
-    cpu: 50m
-    memory: 64Mi
+    cpu: 300m
+    memory: 90Mi
   limits:
-    cpu: 100m
+    cpu: 500m
     memory: 128Mi

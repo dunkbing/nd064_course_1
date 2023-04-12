@@ -97,7 +97,7 @@ def metrics():
         status=200,
         mimetype='application/json'
     )
-    app.logger.info('Metrics request successfull')
+    app.logger.info('Metrics request successfully')
     return response
 
 
