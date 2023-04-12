@@ -1,0 +1,9 @@
+apiVersion: v1
+name: techtrends
+description: TechTrends deployment manifests
+keywords:
+  - techtrends
+version: 1.0.0
+maintainers:
+  - name: dunkbing
+    email: dangbinh4869@gmail.com
