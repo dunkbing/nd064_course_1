@@ -30,12 +30,8 @@ spec:
           ports:
             - containerPort: {{ .Values.containerPort }}
           livenessProbe:
-            httpGet:
-              path: /healthz
-              port: 3111
+{{ toYaml .Values.livenessProbe | indent 12 }}
           readinessProbe:
-            httpGet:
-              path: /healthz
-              port: 3111
+{{ toYaml .Values.readinessProbe | indent 12 }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
