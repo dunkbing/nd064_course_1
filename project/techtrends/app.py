@@ -32,6 +32,7 @@ def index():
     connection = get_db_connection()
     posts = connection.execute('SELECT * FROM posts').fetchall()
     connection.close()
+    app.logger.info("The homepage has been retrieved.")
     return render_template('index.html', posts=posts)
 
 # Define how each individual article is rendered
@@ -40,6 +41,7 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+        app.logger.info("Post not found!")
         return render_template('404.html'), 404
     else:
         app.logger.info(f"Article {post['title']} retrieved")
@@ -67,6 +69,7 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
+            app.logger.info(f"The {title} post has been created successfully.")
 
             return redirect(url_for('index'))
 
@@ -103,5 +106,5 @@ def metrics():
 
 # start the application on port 3111
 if __name__ == "__main__":
-    logging.basicConfig(filename='app.log', level=logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG)
     app.run(host='0.0.0.0', port='3111')
